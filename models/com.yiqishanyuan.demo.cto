@@ -1,0 +1,40 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace com.yiqishanyuan.demo
+
+asset Commodity identified by commodityId {
+  o String commodityId
+  o String commodityName
+  o CommodityCategory commodityCategory optional
+  o Double price
+  --> User owner
+}
+
+@role('role1', 'role2')
+participant User identified by userId {
+  o String userId
+  o String userName
+  o Integer age default=0 optional
+  o String phoneNumber regex=/^[1][3,4,5,7,8][0-9]{9}$/
+}
+
+transaction tradeCommodity {
+  --> User buyer
+  --> Commodity commodity  
+}
+
+event tradeCommodityEvent {
+  --> Commodity commodity
+  o String oldUserName
+  o String newUserName
+}
+
+enum CommodityCategory {
+  o NONE 
+  o PHONE
+  o TV 
+  o REFRIGERATOR 
+  o AIRCONDITIONER 
+}

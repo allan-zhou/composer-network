@@ -1,0 +1,27 @@
+/* 
+ * Access control rules 
+ */
+
+rule Commodity1{
+  description: ""
+  participant: "com.yiqishanyuan.demo.User#1"
+  operation: UPDATE
+  resource: "com.yiqishanyuan.demo.Commodity#1"
+  action: ALLOW
+}
+
+rule Default{
+  description: ""
+  participant: "ANY"
+  operation: ALL
+  resource: "com.yiqishanyuan.demo.*"
+  action: ALLOW
+}
+
+rule SystemACL{
+  description: ""
+  participant: "ANY"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}

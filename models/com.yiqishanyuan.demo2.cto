@@ -1,0 +1,7 @@
+namespace com.yiqishanyuan.demo2
+
+import com.yiqishanyuan.demo.Commodity
+
+asset Phone extends Commodity {
+  o String CPU
+}

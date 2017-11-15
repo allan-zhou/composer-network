@@ -1,0 +1,12 @@
+query selectAllCommodity {
+  description:"查询所有商品"
+  statement:
+    SELECT com.yiqishanyuan.demo.Commodity
+}
+
+query selectCommodityByOwner {
+  description:"根据所有人查询商品"
+  statement:
+    SELECT com.yiqishanyuan.demo.Commodity
+      WHERE (owner == _$owner)
+}
